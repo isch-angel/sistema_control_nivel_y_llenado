@@ -1,0 +1,13 @@
+# LabVIEW
+*.lvproj
+*.aliases
+*.lvlps
+
+# Build / temp
+/build
+/dist
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
