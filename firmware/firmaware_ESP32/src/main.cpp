@@ -11,10 +11,12 @@
 #include "mqtt_manager.h"
 
 void pusblish_level ();
+void publish_pump_state();
+void read_serial_command();
 
 void setup() {
     initSerial();   // Inicia la comunicacion serial 
-    initMqtt();
+    initMqtt();     // Inicia la conexion MQTT
     initWiFi();     // Inicia la conexion wifi
     initPins();     // Inicia los pines
 }
@@ -26,6 +28,7 @@ void loop() {
 
     if (millis() - last_publish >= publish_time) {
         pusblish_level();
+        publish_pump_state();
         last_publish = millis();
     }
 
@@ -48,6 +51,10 @@ void pusblish_level () {
 
     // Publicar nivel del tanque/contenedor
     mqttClient.publish(TOPIC_NIVEL, 0, false, payload);
-    delay(1000);
 
+}
+
+void publish_pump_state() {
+    const char* payload = actuator_s ? "1" : "0";    
+    mqttClient.publish(TOPIC_BOMBA, 0, false, payload);
 }
