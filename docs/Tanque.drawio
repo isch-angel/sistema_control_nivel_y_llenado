@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="FvNDkrKsnOzgN5CwiriM">
+    <mxGraphModel dx="1002" dy="551" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-1" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" value="" vertex="1">
+          <mxGeometry height="220" width="130" x="400" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-2" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="sensor ultrasonico" vertex="1">
+          <mxGeometry height="70" width="90" x="422.5" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-5" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=light-dark(#FFFFFF,#7EA6E0);" value="" vertex="1">
+          <mxGeometry height="90" width="130" x="400" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Tanque de liquido&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="75" x="540" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-9" edge="1" parent="1" style="endArrow=baseDash;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;startArrow=baseDash;startFill=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="420" as="sourcePoint" />
+            <mxPoint x="380" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-10" edge="1" parent="1" style="endArrow=baseDash;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;startArrow=baseDash;startFill=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="530" y="450" as="sourcePoint" />
+            <mxPoint x="400" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-11" edge="1" parent="1" style="endArrow=baseDash;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;startArrow=baseDash;startFill=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="230" as="sourcePoint" />
+            <mxPoint x="380" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-12" edge="1" parent="1" style="endArrow=baseDash;html=1;strokeWidth=2;rounded=0;startArrow=classicThin;startFill=0;endFill=0;strokeColor=light-dark(#000000,#FF3333);dashed=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="467" y="350" as="sourcePoint" />
+            <mxPoint x="467.21" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-13" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="2c5y-5E7ALvyM4j3UXMy-15" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="180" as="sourcePoint" />
+            <mxPoint x="380" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Altura Tanque" vertex="1">
+          <mxGeometry height="30" width="60" x="300" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Altura Sensor" vertex="1">
+          <mxGeometry height="30" width="60" x="310" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-16" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="230" as="sourcePoint" />
+            <mxPoint x="340" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Diametro&lt;div&gt;Tanque&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="340" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-18" edge="1" parent="1" source="2c5y-5E7ALvyM4j3UXMy-17" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="440" y="450" as="sourcePoint" />
+            <mxPoint x="400" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2c5y-5E7ALvyM4j3UXMy-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Altura Sensor - Altura Tanque = Diferencia Altura&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Distancia Superficie - Diferencia Altura = Nivel Tanque&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Diametro Tanque / 2 = Radio Tanque&lt;/div&gt;&lt;div&gt;Nivel Tanque * Pi * (&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Radio Tanque)^2 = Nivel Tanque (cm^2)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="355" x="560" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

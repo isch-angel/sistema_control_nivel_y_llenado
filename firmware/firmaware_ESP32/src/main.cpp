@@ -1,22 +1,53 @@
 #include <Arduino.h>
+// Todos estos includes pueden encontrarlos a la izquierda en la carpeta 'lib'
+// Cada archivo de cabecera .h solamente contiene las definiciones de las funciones.
+// Las funciones en si mismas estan en los archivos .cpp
 #include "serial_comm.h"
-#include "toggle_led.h"
-#include "wifi_connection.h"
-#include "sensor.h"
+#include "wifi_manager.h"
+#include "sensors.h"
+#include "pins.h"
+#include "level.h"
+#include "actuators.h"
+#include "mqtt_manager.h"
+
+void pusblish_level ();
 
 void setup() {
-    initSerial();
-    initWiFi();
-    initSensors();
-    
-    initLed(); // Esto es una broma, ignorarlo
+    initSerial();   // Inicia la comunicacion serial 
+    initMqtt();
+    initWiFi();     // Inicia la conexion wifi
+    initPins();     // Inicia los pines
 }
 
 void loop() {
-    Serial.print("distancia cm: ");
-    Serial.println(sensorUltrasonico());
-    delay(500);
 
-    toggleLed(); // Ignorarlo tambien
+    int publish_time = 1000;
+    unsigned long last_publish = 0;
+
+    if (millis() - last_publish >= publish_time) {
+        pusblish_level();
+        last_publish = millis();
+    }
+
+    if (!sensorCapacitivo() && ordenLlenado) {
+        encenderActuadores();
+    } else {
+        apagarActuadores();
+    }
 }
 
+void pusblish_level () {
+    
+    float d = sensorUltrasonico();
+    float level_cm = tankLevel(d);
+    int mapped_level = map(level_cm, 0, 67, 0, 100);
+    
+    // Convertir de float a string
+    char payload[10];
+    dtostrf(mapped_level, 1, 2, payload);  // ancho mínimo 1, 2 decimales
+
+    // Publicar nivel del tanque/contenedor
+    mqttClient.publish(TOPIC_NIVEL, 0, false, payload);
+    delay(1000);
+
+}
