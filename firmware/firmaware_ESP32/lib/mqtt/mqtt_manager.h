@@ -8,7 +8,7 @@
 // Topics
 constexpr char TOPIC_COMANDO[]  = "UACH1/ciclo_llenado"; // Suscribirse a comando de Activar o desactivar ciclo de llenado.
 constexpr char TOPIC_NIVEL[]    = "UACH1/nivel_tanque";  // Publicar nivel actual de tanque.
-constexpr char TOPIC_BOMBA[]    = "UACH1/bomba_estado";  // Publicar nivel actual de tanque.
+constexpr char TOPIC_BOMBA[]    = "UACH1/bomba_estado";  // Publicar estado actual de actuadores.
  
 // Broker MQTT 
 constexpr char MQTT_SERVER[]    = "broker.emqx.io";
