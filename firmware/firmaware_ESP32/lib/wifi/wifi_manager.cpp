@@ -3,8 +3,8 @@
 #include "wifi_manager.h"
 #include "mqtt_manager.h"
 
-const char* ssid = "wifi_uach";
-const char* password = "";
+const char* ssid = "wifi_docentes";
+const char* password = "IReD0BgdY5";
 
 void initWiFi() {
     WiFi.onEvent(WiFiEvent);
