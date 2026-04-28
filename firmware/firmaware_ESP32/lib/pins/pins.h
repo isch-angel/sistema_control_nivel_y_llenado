@@ -25,13 +25,13 @@
 // ========================================================
 
 // Sensor ultrasónico
-constexpr uint8_t TRIG_PIN = 18;
-constexpr uint8_t ECHO_PIN = 19;
+constexpr uint8_t TRIG_PIN = 27;
+constexpr uint8_t ECHO_PIN = 14;
 
 // Sensor capacitivo
-constexpr uint8_t CAPACITIVO_PIN = 21;
+constexpr uint8_t CAPACITIVO_PIN = 25;
 
 // Relevadores
-constexpr uint8_t RELES_PIN = 23;
+constexpr uint8_t RELES_PIN = 26;
 
 void initPins();
