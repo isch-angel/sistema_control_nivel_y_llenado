@@ -3,8 +3,8 @@
 bool actuator_s = false;
 
 void encenderActuadores() {
-  digitalWrite(RELES_PIN, LOW);
-  actuator_s = true;
+    digitalWrite(RELES_PIN, LOW);
+    actuator_s = true;
 }
 
 void apagarActuadores() {

@@ -4,10 +4,10 @@
 // Todas las variables aqui deben estar en cm 
 
 // Profundidad o altura del tanque
-const float TANK_DEEP       = 67;
+const float TANK_DEEP       = 17;
 
 // Altura del sensor respecto el fondo del tanque
-const float SENSOR_HEIGHT   = 67;
+const float SENSOR_HEIGHT   = 17;
 
 float tankLevel(float distance_cm);
 

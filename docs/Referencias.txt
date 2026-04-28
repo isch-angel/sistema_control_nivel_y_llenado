@@ -3,3 +3,5 @@ ESP32 MQTT – Publish BME680 Temperature, Humidity, Pressure, and Gas Readings 
 What is MQTT and How It Works: https://randomnerdtutorials.com/what-is-mqtt-and-how-it-works/
 https://github.com/marvinroger/async-mqtt-client/blob/develop/docs/2.-API-reference.md
 https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiClientEvents/WiFiClientEvents.ino
+ESP32 Pinout Reference: https://lastminuteengineers.com/esp32-pinout-reference/
+Dual USB Wall charger Keke-F5: https://lygte-info.dk/review/USBpower%20Dual%20USB%20Wall%20charger%20Keke-F5%20UK.html

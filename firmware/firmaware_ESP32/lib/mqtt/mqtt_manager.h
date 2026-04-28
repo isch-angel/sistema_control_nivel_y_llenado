@@ -3,7 +3,6 @@
 // // publicar el estado de los sensores en tanque/sensores.
 #pragma once
 #include <AsyncMqttClient.h>
-#include <AsyncTCP.h>
 
 // Topics
 constexpr char TOPIC_COMANDO[]  = "UACH1/ciclo_llenado"; // Suscribirse a comando de Activar o desactivar ciclo de llenado.
@@ -19,11 +18,12 @@ constexpr char MQTT_CLIENT_ID[] = "ESP32_Agua";
 void onMqttConnect(bool sessionPresent);
 void onMqttDisconnect(AsyncMqttClientDisconnectReason reason);
 void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total);
+void initMqttReconnectTimer(); // Llámala en initMqtt()
 
 // Cliente accesible desde otros módulos
 extern AsyncMqttClient mqttClient;
 
-extern bool ordenLlenado;
-
 void connectToMqtt();
 void initMqtt();
+bool getOrdenLlenado();
+void setOrdenLlenado(bool valor);
