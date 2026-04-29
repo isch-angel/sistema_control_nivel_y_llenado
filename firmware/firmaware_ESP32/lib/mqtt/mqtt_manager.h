@@ -27,3 +27,5 @@ void connectToMqtt();
 void initMqtt();
 bool getOrdenLlenado();
 void setOrdenLlenado(bool valor);
+void publish_level(int mapped_level); 
+void publish_pump_state();

@@ -3,4 +3,4 @@
 #pragma once
 
 bool sensorCapacitivo();
-float sensorUltrasonico();
+float getDistance();

@@ -129,3 +129,21 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
         Serial.println("Payload invalido");
     }
 }
+
+// Publica el nivel del tanque en el broker
+void publish_level(int mapped_level) {
+    char payload[10];
+    
+    // Como mapped_level es un int, dtostrf necesita un float. 
+    // Lo casteamos a (float) para que tu lógica original siga funcionando sin problemas.
+    dtostrf((float)mapped_level, 1, 2, payload);  
+
+    // Publicar nivel del tanque/contenedor
+    mqttClient.publish(TOPIC_NIVEL, 0, false, payload);
+}
+
+// Publica el estado de la bomba en el tanque
+void publish_pump_state() {
+    const char* payload = actuator_s ? "1" : "0";    
+    mqttClient.publish(TOPIC_BOMBA, 0, false, payload);
+}

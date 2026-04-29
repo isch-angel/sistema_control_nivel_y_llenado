@@ -2,18 +2,18 @@
 #include "sensors.h"
 #include "pins.h"
 
-// Esta funcion usa el sensor capacitivo () para determinar si el nivel de agua en el recipiente chico ha sido alcanzado.
-// El sensor manda 0 V cuando no detecta nada y 5 V cuando detacta algo.
-// Su indicador se enciende cuando no detecta nada y se apaga cuando detecta algo. 
-// La funcion retorna un bool "true" cuando el nivel fue alcanzado, "false" cuando el nivel aun no fue alcanzado
+// Esta funcion usa el sensor capacitivo para determinar si el nivel de agua en el recipiente chico ha sido alcanzado.
+// - El sensor manda 0 V cuando no detecta nada y 5 V cuando detacta algo.
+// - Su indicador se enciende cuando no detecta nada y se apaga cuando detecta algo. 
+// - La funcion retorna un bool "true" cuando el nivel fue alcanzado, "false" cuando el nivel aun no fue alcanzado
 bool sensorCapacitivo() {
     return digitalRead(CAPACITIVO_PIN);
 }
 
 // Esta funcion usa el sensor ultrasonico (HC-SR04) para determinar la distancia hacia un 
 // objetivo, en este caso la superficie del agua en el tanque.
-// Retorna la distancia en cm.
-float sensorUltrasonico () {
+// - Retorna la distancia en cm.
+float getDistance() {
     digitalWrite(TRIG_PIN, LOW);
     delayMicroseconds(2);
 

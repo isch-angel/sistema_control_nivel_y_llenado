@@ -9,11 +9,6 @@
 #include "actuators.h"
 #include "mqtt_manager.h"
 
-// Actualizamos la firma de la función para que reciba el nivel
-void publish_level(int mapped_level); 
-void publish_pump_state();
-void read_serial_command();
-
 // Umbrales para histeresis
 const int UMBRAL_ENCENDIDO = 25; 
 const int UMBRAL_APAGADO = 20;
@@ -23,15 +18,15 @@ const int publish_time = 1000;
 
 void setup() {
     Serial.begin(115200);
-    initMqtt();     // Inicia la conexion MQTT
     initWiFi();     // Inicia la conexion wifi
+    initMqtt();     // Inicia la conexion MQTT
     initPins();     // Inicia los pines
 }
 
 void loop() {
-    float d = sensorUltrasonico();
-    float level_cm = tankLevel(d);
-    int mapped_level = map(level_cm, 0, TANK_DEEP, 0, 100);
+    float d = getDistance();
+    float level = getLevel_cm(d);
+    int mapped_level = getLevelPercent(level);
 
     // Rutina de publicación (cada 1000 ms)
     if (millis() - last_publish >= publish_time) {
@@ -60,21 +55,4 @@ void loop() {
         // apagamos todo por seguridad sin importar el nivel.
         apagarActuadores();
     }
-}
-
-// Ahora la función recibe el int que calculamos en el loop
-void publish_level(int mapped_level) {
-    char payload[10];
-    
-    // Como mapped_level es un int, dtostrf necesita un float. 
-    // Lo casteamos a (float) para que tu lógica original siga funcionando sin problemas.
-    dtostrf((float)mapped_level, 1, 2, payload);  
-
-    // Publicar nivel del tanque/contenedor
-    mqttClient.publish(TOPIC_NIVEL, 0, false, payload);
-}
-
-void publish_pump_state() {
-    const char* payload = actuator_s ? "1" : "0";    
-    mqttClient.publish(TOPIC_BOMBA, 0, false, payload);
 }
