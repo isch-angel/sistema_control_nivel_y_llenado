@@ -147,3 +147,12 @@ void publish_pump_state() {
     const char* payload = actuator_s ? "1" : "0";    
     mqttClient.publish(TOPIC_BOMBA, 0, false, payload);
 }
+
+// Funcion para publicar cada segundo el nivel de la cisterna, y el estado de la bomba
+void mqttLoop(unsigned long last_publish, const int publish_time, int level) {
+    if (millis() - last_publish >= publish_time) {
+        publish_level(level); 
+        publish_pump_state();
+        last_publish = millis();
+    }
+}

@@ -3,10 +3,16 @@
 #include "sensors.h"
 #include "level.h"
 #include "mqtt_manager.h"
+#include "actuators.h"
 
+// Umbrales para histeresis
+const int UMBRAL_ENCENDIDO = 25; 
+const int UMBRAL_APAGADO = 20;
+
+// Funcion para actualizar el estado de los actuadores del sistema en funcion del nivel del agua y la orden de llenado
 void controlLoop(float level, bool capacitive, bool orden) {
     // Primero, verificamos si tenemos permiso para operar (sensor capacitivo y orden de llenado)
-    if (!sensorCapacitivo() && getOrdenLlenado()) {
+    if (!capacitive && orden) {
         
         // Si el nivel sube arriba de 25, encendemos
         if (level > UMBRAL_ENCENDIDO) {

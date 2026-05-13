@@ -8,10 +8,7 @@
 #include "level.h"
 #include "actuators.h"
 #include "mqtt_manager.h"
-
-// Umbrales para histeresis
-const int UMBRAL_ENCENDIDO = 25; 
-const int UMBRAL_APAGADO = 20;
+#include "control.h"
 
 unsigned long last_publish = 0;
 const int publish_time = 1000;
@@ -26,33 +23,11 @@ void setup() {
 void loop() {
     float d = getDistance();
     float level = getLevel_cm(d);
-    int mapped_level = getLevelPercent(level);
+    int level_percent = getLevelPercent(level);
 
-    // Rutina de publicación (cada 1000 ms)
-    if (millis() - last_publish >= publish_time) {
-        publish_level(mapped_level); 
-        publish_pump_state();
-        last_publish = millis();
-    }
-    
-    // Primero, verificamos si tenemos permiso para operar (sensor capacitivo y orden de llenado)
-    if (!sensorCapacitivo() && getOrdenLlenado()) {
-        
-        // Si el nivel sube arriba de 25, encendemos
-        if (mapped_level > UMBRAL_ENCENDIDO) {
-            encenderActuadores();
-        } 
-        // Si el nivel baja de 20, apagamos
-        else if (mapped_level < UMBRAL_APAGADO) {
-            apagarActuadores();
-        }
-        // NOTA CLAVE: Si el nivel está entre 20 y 25, no hay ningún "else". 
-        // Esto significa que el ESP32 simplemente no hace nada y la bomba 
-        // se queda en el estado en el que ya estaba (ya sea prendida o apagada).
+    bool capacitive = sensorCapacitivo();
+    bool orden_state = getOrdenLlenado();
 
-    } else {
-        // Si el capacitivo se activa o nos quitan la orden de llenado, 
-        // apagamos todo por seguridad sin importar el nivel.
-        apagarActuadores();
-    }
+    mqttLoop(last_publish, publish_time, level_percent);
+    controlLoop(level_percent, capacitive, orden_state);
 }

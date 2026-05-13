@@ -29,3 +29,4 @@ bool getOrdenLlenado();
 void setOrdenLlenado(bool valor);
 void publish_level(int mapped_level); 
 void publish_pump_state();
+void mqttLoop(unsigned long last_publish, const int publish_time, int level);
